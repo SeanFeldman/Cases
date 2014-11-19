@@ -16,6 +16,7 @@ namespace Case_209_V4
                         .DefineEndpointName("Case_209_Sender_V4")
                         .DefaultBuilder()
                         .UseTransport<AzureServiceBus>(() => connectionString)
+                        .AzureSubscriptionStorage("UseDevelopmentStorage=true", true, "Case209SenderV4subs")
                         .UseInMemoryTimeoutPersister()
                         .UnicastBus()
                         .SendOnly();

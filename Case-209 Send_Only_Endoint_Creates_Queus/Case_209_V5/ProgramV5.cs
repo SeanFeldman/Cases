@@ -11,7 +11,7 @@ namespace Case_209_V5
             var config = new BusConfiguration();
             config.EndpointName("Case_209_V5");
             config.UseTransport<AzureServiceBusTransport>().ConnectionString(() => connectionString);
-            config.UsePersistence<InMemoryPersistence>();
+//            config.UsePersistence<AzureStoragePersistence>();
             var bus = Bus.CreateSendOnly(config);
         }
     }

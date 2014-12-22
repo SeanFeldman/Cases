@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="Case_223" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="WorkerRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="AzureQueueConfig.ConnectionString" value="UseDevelopmentStorage=true;" />
+      <Setting name="AzureQueueConfig.QueueName" value="case223" />
+      <Setting name="MessageForwardingInCaseOfFaultConfig.ErrorQueue" value="case223-error" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="WebRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="AzureQueueConfig.ConnectionString" value="UseDevelopmentStorage=true;" />
+      <Setting name="AzureQueueConfig.QueueName" value="case223" />
+      <Setting name="MessageForwardingInCaseOfFaultConfig.ErrorQueue" value="case223-error" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

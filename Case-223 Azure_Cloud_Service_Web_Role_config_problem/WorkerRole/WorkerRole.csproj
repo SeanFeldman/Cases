@@ -67,8 +67,8 @@
     <Reference Include="NServiceBus.Azure">
       <HintPath>..\packages\NServiceBus.Azure.6.1.2\lib\net45\NServiceBus.Azure.dll</HintPath>
     </Reference>
-    <Reference Include="NServiceBus.Azure.Transports.WindowsAzureServiceBus">
-      <HintPath>..\packages\NServiceBus.Azure.Transports.WindowsAzureServiceBus.6.1.2\lib\net45\NServiceBus.Azure.Transports.WindowsAzureServiceBus.dll</HintPath>
+    <Reference Include="NServiceBus.Azure.Transports.WindowsAzureStorageQueues">
+      <HintPath>..\packages\NServiceBus.Azure.Transports.WindowsAzureStorageQueues.6.1.2\lib\net45\NServiceBus.Azure.Transports.WindowsAzureStorageQueues.dll</HintPath>
     </Reference>
     <Reference Include="NServiceBus.Core">
       <HintPath>..\packages\NServiceBus.5.1.2\lib\net45\NServiceBus.Core.dll</HintPath>
@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EndpointConfig.cs" />
+    <Compile Include="PingHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkerRole.cs" />
   </ItemGroup>
@@ -99,6 +100,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Case-223.Contracts\Case-223.Contracts.csproj">
+      <Project>{ef1f1655-d724-4af2-b7ca-c405618439bc}</Project>
+      <Name>Case-223.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case-223.Shared\Case-223.Shared.csproj">
       <Project>{7230D1C0-1B19-480B-BF46-5BF3510FF478}</Project>
       <Name>Case-223.Shared</Name>

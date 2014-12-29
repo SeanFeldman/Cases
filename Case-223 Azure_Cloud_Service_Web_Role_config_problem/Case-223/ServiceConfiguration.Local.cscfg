@@ -4,7 +4,7 @@
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="AzureQueueConfig.ConnectionString" value="UseDevelopmentStorage=true;" />
-      <Setting name="AzureQueueConfig.QueueName" value="case223" />
+      <Setting name="AzureQueueConfig.QueueName" value="case223-worker" />
       <Setting name="MessageForwardingInCaseOfFaultConfig.ErrorQueue" value="case223-error" />
     </ConfigurationSettings>
   </Role>
@@ -12,7 +12,7 @@
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="AzureQueueConfig.ConnectionString" value="UseDevelopmentStorage=true;" />
-      <Setting name="AzureQueueConfig.QueueName" value="case223" />
+      <Setting name="AzureQueueConfig.QueueName" value="case223-web" />
       <Setting name="MessageForwardingInCaseOfFaultConfig.ErrorQueue" value="case223-error" />
     </ConfigurationSettings>
   </Role>

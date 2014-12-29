@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRole", "WebRole\WebRole.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case-223.Shared", "Case-223.Shared\Case-223.Shared.csproj", "{7230D1C0-1B19-480B-BF46-5BF3510FF478}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case-223.Contracts", "Case-223.Contracts\Case-223.Contracts.csproj", "{EF1F1655-D724-4AF2-B7CA-C405618439BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7230D1C0-1B19-480B-BF46-5BF3510FF478}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7230D1C0-1B19-480B-BF46-5BF3510FF478}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7230D1C0-1B19-480B-BF46-5BF3510FF478}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF1F1655-D724-4AF2-B7CA-C405618439BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF1F1655-D724-4AF2-B7CA-C405618439BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF1F1655-D724-4AF2-B7CA-C405618439BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF1F1655-D724-4AF2-B7CA-C405618439BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

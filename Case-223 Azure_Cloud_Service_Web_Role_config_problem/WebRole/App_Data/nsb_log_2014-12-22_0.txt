@@ -1,0 +1,16 @@
+﻿2014-12-22 18:00:12.479 INFO  DefaultFactory Logging to 'C:\GitHub\SeanFeldman\Cases\Case-223 Azure_Cloud_Service_Web_Role_config_problem\WebRole\App_Data\' with level Info
+2014-12-22 18:00:12.616 INFO  NServiceBus.Persistence.PersistenceStartup Activating persistence 'AzureStoragePersistence' to provide storage for 'Timeouts' storage.
+2014-12-22 18:00:12.624 INFO  NServiceBus.Persistence.PersistenceStartup Activating persistence 'AzureStoragePersistence' to provide storage for 'Sagas' storage.
+2014-12-22 18:00:12.627 INFO  NServiceBus.Persistence.PersistenceStartup Activating persistence 'AzureStoragePersistence' to provide storage for 'Subscriptions' storage.
+2014-12-22 18:01:18.911 INFO  DefaultFactory Logging to 'C:\GitHub\SeanFeldman\Cases\Case-223 Azure_Cloud_Service_Web_Role_config_problem\WebRole\App_Data\' with level Info
+2014-12-22 18:01:19.041 INFO  NServiceBus.Persistence.PersistenceStartup Activating persistence 'AzureStoragePersistence' to provide storage for 'Timeouts' storage.
+2014-12-22 18:01:19.048 INFO  NServiceBus.Persistence.PersistenceStartup Activating persistence 'AzureStoragePersistence' to provide storage for 'Sagas' storage.
+2014-12-22 18:01:19.052 INFO  NServiceBus.Persistence.PersistenceStartup Activating persistence 'AzureStoragePersistence' to provide storage for 'Subscriptions' storage.
+2014-12-22 18:03:57.447 INFO  DefaultFactory Logging to 'C:\GitHub\SeanFeldman\Cases\Case-223 Azure_Cloud_Service_Web_Role_config_problem\WebRole\App_Data\' with level Info
+2014-12-22 18:03:57.601 INFO  NServiceBus.Persistence.PersistenceStartup Activating persistence 'AzureStoragePersistence' to provide storage for 'Timeouts' storage.
+2014-12-22 18:03:57.609 INFO  NServiceBus.Persistence.PersistenceStartup Activating persistence 'AzureStoragePersistence' to provide storage for 'Sagas' storage.
+2014-12-22 18:03:57.613 INFO  NServiceBus.Persistence.PersistenceStartup Activating persistence 'AzureStoragePersistence' to provide storage for 'Subscriptions' storage.
+2014-12-22 18:06:00.099 INFO  DefaultFactory Logging to 'C:\GitHub\SeanFeldman\Cases\Case-223 Azure_Cloud_Service_Web_Role_config_problem\WebRole\App_Data\' with level Info
+2014-12-22 18:06:00.275 INFO  NServiceBus.Persistence.PersistenceStartup Activating persistence 'AzureStoragePersistence' to provide storage for 'Timeouts' storage.
+2014-12-22 18:06:00.284 INFO  NServiceBus.Persistence.PersistenceStartup Activating persistence 'AzureStoragePersistence' to provide storage for 'Sagas' storage.
+2014-12-22 18:06:00.288 INFO  NServiceBus.Persistence.PersistenceStartup Activating persistence 'AzureStoragePersistence' to provide storage for 'Subscriptions' storage.

@@ -7,8 +7,7 @@ namespace WorkerRole
     {
         public void Customize(BusConfiguration configuration)
         {
-            //configuration.AzureConfigurationSource();
-            configuration.UseTransport<AzureServiceBusTransport>();
+            configuration.UseTransport<AzureStorageQueueTransport>();
             configuration.UsePersistence<AzureStoragePersistence>();
             configuration.ApplyMessageConventions();
         }

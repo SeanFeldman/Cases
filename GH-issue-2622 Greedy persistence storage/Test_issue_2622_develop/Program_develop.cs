@@ -15,30 +15,14 @@ namespace Test_issue_2622
             config.UseTransport<MsmqTransport>();
 
             config.UsePersistence<InMemoryPersistence>();
-            //            config.UsePersistence<MsmqPersistence>().For(Storage.Subscriptions);
             config.UsePersistence<AzureStoragePersistence, StorageType.Subscriptions>();
-            /*
-            // test that .For() is not possible
-            var gotRightException = false;
-            try
-            {
-                
-                config.UsePersistence<AzureStoragePersistence, StorageType.Subscriptions>().For(Storage.Sagas, Storage.Outbox);
-            }
-            catch (InvalidOperationException e)
-            {
-                gotRightException = true;
-            }
-            if (!gotRightException)
-            {
-                throw new Exception("Call to .For() should have failed");
-            }*/
+            // test that .For() is possible
+            //~config.UsePersistence<AzureStoragePersistence, StorageType.Subscriptions>().For(Storage.Sagas, Storage.Subscriptions);
 
             var startableBus = Bus.Create(config);
-
-            return;
             startableBus.Start();
 
+            return;
             startableBus.SendLocal<TestIt>(x => { });
             Console.WriteLine("Press any key to exit");
             Console.ReadLine();

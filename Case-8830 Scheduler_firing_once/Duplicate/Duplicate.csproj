@@ -62,6 +62,7 @@
     <Compile Include="..\Case-8830 Scheduler_firing_once\EndpointConfig.cs">
       <Link>EndpointConfig.cs</Link>
     </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

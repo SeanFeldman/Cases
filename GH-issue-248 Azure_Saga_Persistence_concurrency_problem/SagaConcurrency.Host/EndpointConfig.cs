@@ -73,13 +73,15 @@ namespace SagaConcurrency.Host
         }
     }
 
-    class ConfigureASBTransport : IProvideConfiguration<AzureServiceBusQueueConfig>
+    class ConfigureASB : IProvideConfiguration<AzureServiceBusQueueConfig>
     {
         public AzureServiceBusQueueConfig GetConfiguration()
         {
             return new AzureServiceBusQueueConfig()
             {
                 ConnectionString = ConfigurationManager.ConnectionStrings["NServiceBus/Transport"].ConnectionString,
+                LockDuration = 180000,
+                MaxDeliveryCount = 480
             };
         }
     }

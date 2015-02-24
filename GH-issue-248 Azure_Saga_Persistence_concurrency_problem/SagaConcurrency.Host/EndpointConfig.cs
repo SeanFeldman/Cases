@@ -24,7 +24,7 @@ namespace SagaConcurrency.Host
             var defaultFactory = LogManager.Use<DefaultFactory>();
             defaultFactory.Level(LogLevel.Warn);
 
-//            configuration.CustomConfigurationSource(new CustomConfigurationSource());
+            configuration.CustomConfigurationSource(new CustomConfigurationSource());
         }
     }
 

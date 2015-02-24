@@ -104,6 +104,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="connectionstrings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

@@ -1,6 +1,7 @@
 
 using System;
 using System.Configuration;
+using System.IO;
 using NServiceBus.Config;
 using NServiceBus.Config.ConfigurationSource;
 using NServiceBus.Features;
@@ -98,7 +99,7 @@ namespace SagaConcurrency.Host
         {
             return new AzureServiceBusQueueConfig()
             {
-                ConnectionString = ConfigurationManager.ConnectionStrings["NServiceBus/Transport"].ConnectionString,
+                ConnectionString = ConnectionStringReader.Get().Transport,
                 LockDuration = 180000,
                 MaxDeliveryCount = 480
             };
@@ -111,7 +112,7 @@ namespace SagaConcurrency.Host
         {
             return new AzureSagaPersisterConfig()
             {
-                ConnectionString = ConfigurationManager.ConnectionStrings["NServiceBus/Persistence"].ConnectionString,
+                ConnectionString = ConnectionStringReader.Get().Persistence
             };
         }
     }
@@ -122,7 +123,7 @@ namespace SagaConcurrency.Host
         {
             return new AzureTimeoutPersisterConfig()
             {
-                ConnectionString = ConfigurationManager.ConnectionStrings["NServiceBus/Persistence"].ConnectionString,
+                ConnectionString = ConnectionStringReader.Get().Persistence
             };
         }
     }
@@ -133,9 +134,31 @@ namespace SagaConcurrency.Host
         {
             return new AzureSubscriptionStorageConfig()
             {
-                ConnectionString = ConfigurationManager.ConnectionStrings["NServiceBus/Persistence"].ConnectionString,
+                ConnectionString = ConnectionStringReader.Get().Persistence
             };
         }
     }
 
+    public class ConnectionStringReader
+    {
+        public static ConnectionStrings Get()
+        {
+            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "connectionstrings.json");
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConnectionStrings>(File.ReadAllText(filePath));
+        }
+    }
+
+    /*
+     Required: connectionstring.json file in the following format
+        {
+            "Transport": "Endpoint=sb://[namespace].servicebus.windows.net/;Shared...",
+            "Persistence": "DefaultEndpointsProtocol=https;AccountName=[account];AccountKey=..."
+        }
+     */
+
+    public class ConnectionStrings
+    {
+        public string Transport { get; set; }
+        public string Persistence { get; set; }
+    }
 }

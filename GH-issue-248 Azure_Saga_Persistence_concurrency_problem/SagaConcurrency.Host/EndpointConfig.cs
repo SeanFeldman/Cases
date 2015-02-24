@@ -22,11 +22,42 @@ namespace SagaConcurrency.Host
             configuration.EndpointName("GH-issue-248-AzureSagaPersister");
 
             var defaultFactory = LogManager.Use<DefaultFactory>();
-            defaultFactory.Level(LogLevel.Info);
+            defaultFactory.Level(LogLevel.Warn);
+
+//            configuration.CustomConfigurationSource(new CustomConfigurationSource());
         }
     }
 
-    class ConfigureErrorQueue : IProvideConfiguration<MessageForwardingInCaseOfFaultConfig>
+    public class CustomConfigurationSource : IConfigurationSource
+    {
+        public T GetConfiguration<T>() where T : class, new()
+        {
+            if (typeof(T) == typeof(TransportConfig))
+            {
+                return new TransportConfig()
+                {
+                    MaxRetries = 5,
+                    MaximumConcurrencyLevel = 15,
+                } as T;
+            }
+
+            return ConfigurationManager.GetSection(typeof (T).Name) as T;
+        }
+    }
+
+    public class ConfigureTransport : IProvideConfiguration<TransportConfig>
+    {
+        public TransportConfig GetConfiguration()
+        {
+            return new TransportConfig()
+            {
+                MaxRetries = 5,
+                MaximumConcurrencyLevel = 15,
+            };
+        }
+    }
+
+    public class ConfigureErrorQueue : IProvideConfiguration<MessageForwardingInCaseOfFaultConfig>
     {
         public MessageForwardingInCaseOfFaultConfig GetConfiguration()
         {
@@ -37,7 +68,7 @@ namespace SagaConcurrency.Host
         }
     }
 
-    class ConfigureAuditQueue : IProvideConfiguration<AuditConfig>
+    public class ConfigureAuditQueue : IProvideConfiguration<AuditConfig>
     {
         public AuditConfig GetConfiguration()
         {
@@ -48,19 +79,7 @@ namespace SagaConcurrency.Host
         }
     }
 
-    class ConfigureTransport : IProvideConfiguration<TransportConfig>
-    {
-        public TransportConfig GetConfiguration()
-        {
-            return new TransportConfig()
-            {
-                MaxRetries = 5,
-                MaximumConcurrencyLevel = 10,
-            };
-        }
-    }
-
-    class ConfigureSLR : IProvideConfiguration<SecondLevelRetriesConfig>
+    public class ConfigureSLR : IProvideConfiguration<SecondLevelRetriesConfig>
     {
         public SecondLevelRetriesConfig GetConfiguration()
         {
@@ -73,7 +92,7 @@ namespace SagaConcurrency.Host
         }
     }
 
-    class ConfigureASB : IProvideConfiguration<AzureServiceBusQueueConfig>
+    public class ConfigureASB : IProvideConfiguration<AzureServiceBusQueueConfig>
     {
         public AzureServiceBusQueueConfig GetConfiguration()
         {
@@ -86,7 +105,7 @@ namespace SagaConcurrency.Host
         }
     }
 
-    class ConfigureSagaPersistence : IProvideConfiguration<AzureSagaPersisterConfig>
+    public class ConfigureSagaPersistence : IProvideConfiguration<AzureSagaPersisterConfig>
     {
         public AzureSagaPersisterConfig GetConfiguration()
         {
@@ -97,7 +116,7 @@ namespace SagaConcurrency.Host
         }
     }
 
-    class ConfigureTimeoutManagerPersistence : IProvideConfiguration<AzureTimeoutPersisterConfig>
+    public class ConfigureTimeoutManagerPersistence : IProvideConfiguration<AzureTimeoutPersisterConfig>
     {
         public AzureTimeoutPersisterConfig GetConfiguration()
         {
@@ -108,7 +127,7 @@ namespace SagaConcurrency.Host
         }
     }
 
-    class ConfigureSubscriptionPersistence : IProvideConfiguration<AzureSubscriptionStorageConfig>
+    public class ConfigureSubscriptionPersistence : IProvideConfiguration<AzureSubscriptionStorageConfig>
     {
         public AzureSubscriptionStorageConfig GetConfiguration()
         {

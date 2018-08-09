@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TestEndpoint": {
+      "commandName": "Executable",
+      "executablePath": "$(solutiondir)\\TestEndpoint\\bin\\Debug\\net461\\NServiceBus.Host.exe"
+    }
+  }
+}

@@ -18,7 +18,6 @@
             notifications = context.Settings.Get<Notifications>();
             var errorHandler = new ErrorHandler(notifications);
             context.RegisterStartupTask(new ErrorHandlerStartupTask(errorHandler));
-            context.Container.RegisterSingleton(errorHandler);
         }
     }
 

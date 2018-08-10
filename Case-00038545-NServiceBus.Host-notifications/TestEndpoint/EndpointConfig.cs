@@ -13,7 +13,8 @@
             configuration.UseTransport<MsmqTransport>();
             configuration.Recoverability().Immediate(settings => settings.NumberOfRetries(0));
             configuration.Recoverability().Delayed(settings => settings.NumberOfRetries(0));
-            configuration.RegisterComponents(components => components.RegisterSingleton(configuration));
+            // Required for approach 01, but not 02
+            //configuration.RegisterComponents(components => components.RegisterSingleton(configuration));
         }
     }
 }

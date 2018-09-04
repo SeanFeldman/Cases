@@ -2,7 +2,6 @@
 {
     using System;
     using System.Threading.Tasks;
-    using Messages;
     using NServiceBus;
 
     class Program
@@ -11,7 +10,8 @@
         {
             var endpointConfiguration = new EndpointConfiguration("publisher");
             endpointConfiguration.SendFailedMessagesTo("error");
-            endpointConfiguration.UseSerialization<NewtonsoftSerializer>();
+            endpointConfiguration.UseSerialization<JsonSerializer>();
+            endpointConfiguration.UsePersistence<InMemoryPersistence>();
             endpointConfiguration.EnableInstallers();
 
             var transport = endpointConfiguration.UseTransport<AzureServiceBusTransport>();
@@ -24,7 +24,7 @@
             ConsoleKeyInfo key;
             do
             {
-                await instance.Publish<CustomEvent>(@event => @event.Data = DateTime.Now.ToString("O"));
+                await instance.Publish(new CustomEvent { Data = DateTime.Now.ToString("O") });
 
                 Console.WriteLine("Event published");
                 Console.WriteLine("Press ESC to quit or any other key to send an event");

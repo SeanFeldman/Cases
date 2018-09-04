@@ -3,8 +3,8 @@
 namespace SubscriberASBS
 {
     using System.Threading.Tasks;
-    using Messages;
     using NServiceBus;
+    using NServiceBus.MessageMutator;
 
     class Program
     {
@@ -14,6 +14,8 @@ namespace SubscriberASBS
             endpointConfiguration.SendFailedMessagesTo("error");
             endpointConfiguration.UseSerialization<NewtonsoftSerializer>();
             endpointConfiguration.EnableInstallers();
+            endpointConfiguration.Conventions().DefiningEventsAs(type => type.Name == "CustomEvent");
+            endpointConfiguration.RegisterMessageMutator(new RemoveAssemblyInfoFromMessageMutator());
 
             var transport = endpointConfiguration.UseTransport<AzureServiceBusTransport>();
             transport.ConnectionString(Environment.GetEnvironmentVariable("AzureServiceBus_ConnectionString"));
